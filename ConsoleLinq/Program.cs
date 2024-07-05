@@ -43,8 +43,15 @@
             //}
 
 
-            var p = new PubsSample();
-            p.SelectTest();
+            var s = new EFSample();
+            //s.SelectTest();
+            //s.Where();
+            //s.Select();
+            //s.Relation();
+            //s.Order();
+            //s.Totalling();
+            //s.Skip();
+            s.Group();
 
 
 

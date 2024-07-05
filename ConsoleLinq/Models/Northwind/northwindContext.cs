@@ -40,8 +40,14 @@ public partial class northwindContext : DbContext
     public virtual DbSet<Territory> Territories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    { 
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=SSTPX13G4;Initial Catalog=Northwind;Integrated Security=True; Encrypt=False");
+       optionsBuilder.UseSqlServer("Data Source=SSTPX13G4;Initial Catalog=Northwind;Integrated Security=True; Encrypt=False");
+
+        // 出力ウィンドウに EF Core ログを表示
+        optionsBuilder.LogTo(msg => System.Diagnostics.Debug.WriteLine(msg));
+    }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
