@@ -51,7 +51,9 @@
             //s.Order();
             //s.Totalling();
             //s.Skip();
-            s.Group();
+            //s.Group();
+            //s.Join();
+            s.GroupJoin();
 
 
 
