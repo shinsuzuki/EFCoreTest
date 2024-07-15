@@ -121,24 +121,50 @@ namespace EFCoreForm2
             {
                 var q = ctx.Orders
                     .GroupJoin(ctx.OrderItems,
-                        a => a.OrderId, 
+                        a => a.OrderId,
                         b => b.OrderId,
-                        (order, orderItems) => new {
-                            o = order, oi= orderItems 
+                        (order, orderItems) => new
+                        {
+                            o = order,
+                            oi = orderItems
                         })
                     .SelectMany(item => item.oi.DefaultIfEmpty(),
-                    (item, orderItem) => new 
+                    (item, orderItem) => new
                     {
-                        OrderId  = item.o.OrderId,
+                        OrderId = item.o.OrderId,
                         CustomerId = item.o.CustomerId,
                         OrderDate = item.o.OrderDate,
                         ProductId = orderItem == null ? (int?)null : orderItem.ProductId,
-                        Quantity = orderItem == null ? (int?)null : orderItem.Quantity ,
+                        Quantity = orderItem == null ? (int?)null : orderItem.Quantity,
                         Price = (orderItem == null) ? (int?)null : orderItem.Price
                     });
 
                 this.dataGridView1.DataSource = q.ToList();
             }
+        }
+
+        private void btnInclude_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new AndersonDbContext())
+            {
+                var oreders = ctx.Orders
+                    .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Product)
+                    .ToList();
+
+                dataGridView1.DataSource = oreders;
+            }
+
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            var order = dataGridView1.CurrentRow.DataBoundItem as Order;
+            if (order == null)
+            {
+                return;
+            }
+            dataGridView2.DataSource = order.OrderItems;
         }
     }
 }
