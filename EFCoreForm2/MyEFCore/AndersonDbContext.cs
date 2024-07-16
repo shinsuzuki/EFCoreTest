@@ -49,7 +49,7 @@ namespace EFCoreForm2.MyEFCore
             modelBuilder.Entity<OrderItem>()
                 .ToTable("OrderItem")
                 .HasOne(oi => oi.Order)                 // このプロパティからデータを一つだけ持ちます
-                .WithMany(oi => oi.OrderItems)          // Order側からみたらN件
+                .WithMany(o => o.OrderItems)            // Order側からみたらN件
                 .HasForeignKey(oi => oi.OrderId)        // 外部キー
                 .IsRequired(false)                      // 外部結合とするため必須にしない
                 .HasConstraintName("FK_OrderItem_Order");
@@ -57,7 +57,7 @@ namespace EFCoreForm2.MyEFCore
             modelBuilder.Entity<OrderItem>()
                 .ToTable("OrderItem")
                 .HasOne(oi => oi.Product)               // このプロパティからデータを一つだけ持ちます
-                .WithMany(oi => oi.OrderItems)          // Product側からみたらN件
+                .WithMany(p => p.OrderItems)            // Product側からみたらN件
                 .HasForeignKey(oi => oi.ProductId)      // 外部キー
                 .IsRequired(false)                      // 外部結合とするため必須にしない
                 .HasConstraintName("FK_OrderItem_Product");
@@ -66,9 +66,9 @@ namespace EFCoreForm2.MyEFCore
                 .ToTable("Customer");
 
             modelBuilder.Entity<Order>()
-                .HasOne(oi => oi.Customer)              // このプロパティからデータを一つだけ持ちます
-                .WithMany(oi => oi.Orders)              // Cusromer側からみたらN件   
-                .HasForeignKey(oi => oi.CustomerId)     // 外部キー
+                .HasOne(o => o.Customer)                // このプロパティからデータを一つだけ持ちます
+                .WithMany(c => c.Orders)                // Cusromer側からみたらN件   
+                .HasForeignKey(o => o.CustomerId)       // 外部キー
                 .IsRequired(false)                      // 外部結合とするため必須にしない
                 .HasConstraintName("FK_Order_Customer");
 
