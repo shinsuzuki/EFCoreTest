@@ -189,5 +189,45 @@ namespace EFCoreForm2
 
             }
         }
+
+        private void btnInsertProduct_Click(object sender, EventArgs e)
+        {
+            // V‹K’Ç‰Á
+            var p = new ProductEntity()
+            {
+                ProductId = 11,
+                ProductName = "Test11",
+                Price = 10
+            };
+
+            using (var ctx = new AndersonDbContext())
+            {
+                ctx.Products.Add(p);
+                ctx.SaveChanges();
+            }
+        }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            // XV
+            using (var ctx = new AndersonDbContext())
+            {
+                var p = ctx.Products.FirstOrDefault(x => x.ProductId == 11);
+                if (p != null)
+                {
+                    p.ProductName = "xxxx" + DateTime.Now.ToString("yyyyMMdd_hhmmss");
+                    ctx.SaveChanges();
+                }
+            }
+
+        }
+
+        private void btnUpdateForm_Click(object sender, EventArgs e)
+        {
+            using (var f = new FormUpdate())
+            {
+                f.ShowDialog();
+            }
+        }
     }
 }

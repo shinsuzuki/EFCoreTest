@@ -42,13 +42,18 @@
             dataGridView2 = new DataGridView();
             btnCustomer = new Button();
             btnProductCustomer = new Button();
+            btnInsertProduct = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            btnUpdateProduct = new Button();
+            btnUpdateForm = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // btnEF
             // 
-            btnEF.Location = new Point(12, 424);
+            btnEF.Location = new Point(12, 443);
             btnEF.Margin = new Padding(3, 2, 3, 2);
             btnEF.Name = "btnEF";
             btnEF.Size = new Size(134, 34);
@@ -70,7 +75,7 @@
             // 
             // btnWhere
             // 
-            btnWhere.Location = new Point(12, 462);
+            btnWhere.Location = new Point(12, 481);
             btnWhere.Margin = new Padding(3, 2, 3, 2);
             btnWhere.Name = "btnWhere";
             btnWhere.Size = new Size(134, 33);
@@ -81,7 +86,7 @@
             // 
             // btnOrder
             // 
-            btnOrder.Location = new Point(12, 500);
+            btnOrder.Location = new Point(12, 519);
             btnOrder.Margin = new Padding(3, 2, 3, 2);
             btnOrder.Name = "btnOrder";
             btnOrder.Size = new Size(134, 33);
@@ -92,7 +97,7 @@
             // 
             // btnFind
             // 
-            btnFind.Location = new Point(152, 424);
+            btnFind.Location = new Point(152, 443);
             btnFind.Margin = new Padding(3, 2, 3, 2);
             btnFind.Name = "btnFind";
             btnFind.Size = new Size(134, 33);
@@ -103,7 +108,7 @@
             // 
             // btnFirstOrDefaurlt
             // 
-            btnFirstOrDefaurlt.Location = new Point(152, 462);
+            btnFirstOrDefaurlt.Location = new Point(152, 481);
             btnFirstOrDefaurlt.Margin = new Padding(3, 2, 3, 2);
             btnFirstOrDefaurlt.Name = "btnFirstOrDefaurlt";
             btnFirstOrDefaurlt.Size = new Size(134, 33);
@@ -114,7 +119,7 @@
             // 
             // btnLike
             // 
-            btnLike.Location = new Point(152, 500);
+            btnLike.Location = new Point(152, 519);
             btnLike.Margin = new Padding(3, 2, 3, 2);
             btnLike.Name = "btnLike";
             btnLike.Size = new Size(134, 33);
@@ -125,7 +130,7 @@
             // 
             // btnTest
             // 
-            btnTest.Location = new Point(12, 537);
+            btnTest.Location = new Point(12, 556);
             btnTest.Margin = new Padding(3, 2, 3, 2);
             btnTest.Name = "btnTest";
             btnTest.Size = new Size(134, 33);
@@ -136,7 +141,7 @@
             // 
             // btnInJoin
             // 
-            btnInJoin.Location = new Point(291, 424);
+            btnInJoin.Location = new Point(291, 443);
             btnInJoin.Margin = new Padding(3, 2, 3, 2);
             btnInJoin.Name = "btnInJoin";
             btnInJoin.Size = new Size(134, 33);
@@ -147,7 +152,7 @@
             // 
             // btnLeftJoin
             // 
-            btnLeftJoin.Location = new Point(291, 462);
+            btnLeftJoin.Location = new Point(291, 481);
             btnLeftJoin.Margin = new Padding(3, 2, 3, 2);
             btnLeftJoin.Name = "btnLeftJoin";
             btnLeftJoin.Size = new Size(134, 33);
@@ -158,7 +163,7 @@
             // 
             // btnInclude
             // 
-            btnInclude.Location = new Point(292, 500);
+            btnInclude.Location = new Point(292, 519);
             btnInclude.Margin = new Padding(3, 2, 3, 2);
             btnInclude.Name = "btnInclude";
             btnInclude.Size = new Size(134, 33);
@@ -179,7 +184,7 @@
             // 
             // btnCustomer
             // 
-            btnCustomer.Location = new Point(431, 425);
+            btnCustomer.Location = new Point(431, 444);
             btnCustomer.Margin = new Padding(3, 2, 3, 2);
             btnCustomer.Name = "btnCustomer";
             btnCustomer.Size = new Size(134, 33);
@@ -190,7 +195,7 @@
             // 
             // btnProductCustomer
             // 
-            btnProductCustomer.Location = new Point(431, 462);
+            btnProductCustomer.Location = new Point(431, 481);
             btnProductCustomer.Margin = new Padding(3, 2, 3, 2);
             btnProductCustomer.Name = "btnProductCustomer";
             btnProductCustomer.Size = new Size(134, 71);
@@ -199,11 +204,67 @@
             btnProductCustomer.UseVisualStyleBackColor = true;
             btnProductCustomer.Click += btnProductCustomer_Click;
             // 
+            // btnInsertProduct
+            // 
+            btnInsertProduct.Location = new Point(12, 621);
+            btnInsertProduct.Margin = new Padding(3, 2, 3, 2);
+            btnInsertProduct.Name = "btnInsertProduct";
+            btnInsertProduct.Size = new Size(134, 33);
+            btnInsertProduct.TabIndex = 14;
+            btnInsertProduct.Text = "InsertProduct";
+            btnInsertProduct.UseVisualStyleBackColor = true;
+            btnInsertProduct.Click += btnInsertProduct_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 600);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 19);
+            label1.TabIndex = 15;
+            label1.Text = "●更新系";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 422);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 19);
+            label2.TabIndex = 16;
+            label2.Text = "●参照系";
+            // 
+            // btnUpdateProduct
+            // 
+            btnUpdateProduct.Location = new Point(152, 621);
+            btnUpdateProduct.Margin = new Padding(3, 2, 3, 2);
+            btnUpdateProduct.Name = "btnUpdateProduct";
+            btnUpdateProduct.Size = new Size(134, 33);
+            btnUpdateProduct.TabIndex = 17;
+            btnUpdateProduct.Text = "UpdateProduct";
+            btnUpdateProduct.UseVisualStyleBackColor = true;
+            btnUpdateProduct.Click += btnUpdateProduct_Click;
+            // 
+            // btnUpdateForm
+            // 
+            btnUpdateForm.Location = new Point(292, 621);
+            btnUpdateForm.Margin = new Padding(3, 2, 3, 2);
+            btnUpdateForm.Name = "btnUpdateForm";
+            btnUpdateForm.Size = new Size(134, 33);
+            btnUpdateForm.TabIndex = 18;
+            btnUpdateForm.Text = "UpdateForm";
+            btnUpdateForm.UseVisualStyleBackColor = true;
+            btnUpdateForm.Click += btnUpdateForm_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 593);
+            ClientSize = new Size(830, 734);
+            Controls.Add(btnUpdateForm);
+            Controls.Add(btnUpdateProduct);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnInsertProduct);
             Controls.Add(btnProductCustomer);
             Controls.Add(btnCustomer);
             Controls.Add(dataGridView2);
@@ -225,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -243,5 +305,10 @@
         private DataGridView dataGridView2;
         private Button btnCustomer;
         private Button btnProductCustomer;
+        private Button btnInsertProduct;
+        private Label label1;
+        private Label label2;
+        private Button btnUpdateProduct;
+        private Button btnUpdateForm;
     }
 }
