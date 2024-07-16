@@ -40,6 +40,8 @@
             btnLeftJoin = new Button();
             btnInclude = new Button();
             dataGridView2 = new DataGridView();
+            btnCustomer = new Button();
+            btnProductCustomer = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -175,11 +177,35 @@
             dataGridView2.Size = new Size(806, 172);
             dataGridView2.TabIndex = 11;
             // 
+            // btnCustomer
+            // 
+            btnCustomer.Location = new Point(431, 425);
+            btnCustomer.Margin = new Padding(3, 2, 3, 2);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(134, 33);
+            btnCustomer.TabIndex = 12;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
+            // 
+            // btnProductCustomer
+            // 
+            btnProductCustomer.Location = new Point(431, 462);
+            btnProductCustomer.Margin = new Padding(3, 2, 3, 2);
+            btnProductCustomer.Name = "btnProductCustomer";
+            btnProductCustomer.Size = new Size(134, 71);
+            btnProductCustomer.TabIndex = 13;
+            btnProductCustomer.Text = "IncludeProductCustomer";
+            btnProductCustomer.UseVisualStyleBackColor = true;
+            btnProductCustomer.Click += btnProductCustomer_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 593);
+            Controls.Add(btnProductCustomer);
+            Controls.Add(btnCustomer);
             Controls.Add(dataGridView2);
             Controls.Add(btnInclude);
             Controls.Add(btnLeftJoin);
@@ -215,5 +241,7 @@
         private Button btnLeftJoin;
         private Button btnInclude;
         private DataGridView dataGridView2;
+        private Button btnCustomer;
+        private Button btnProductCustomer;
     }
 }

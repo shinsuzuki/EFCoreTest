@@ -166,5 +166,28 @@ namespace EFCoreForm2
             }
             dataGridView2.DataSource = order.OrderItems;
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new AndersonDbContext())
+            {
+                dataGridView1.DataSource = ctx.Customers.ToList();
+            }
+        }
+
+        private void btnProductCustomer_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new AndersonDbContext())
+            {
+                var orders = ctx.Orders
+                    .Include(o => o.OrderItems)
+                        .ThenInclude(oi => oi.Product)
+                    //.Include(o => o.OrderItems)
+                    .Include(o => o.Customer);
+
+                dataGridView1.DataSource = orders.ToList();
+
+            }
+        }
     }
 }

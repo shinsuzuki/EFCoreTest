@@ -14,6 +14,8 @@ namespace EFCoreForm2.MyEFCore
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new SqlConnectionStringBuilder();
@@ -59,6 +61,18 @@ namespace EFCoreForm2.MyEFCore
                 .HasForeignKey(oi => oi.ProductId)      // 外部キー
                 .IsRequired(false)                      // 外部結合とするため必須にしない
                 .HasConstraintName("FK_OrderItem_Product");
+
+            modelBuilder.Entity<Customer>()
+                .ToTable("Customer");
+
+            modelBuilder.Entity<Order>()
+                .HasOne(oi => oi.Customer)              // このプロパティからデータを一つだけ持ちます
+                .WithMany(oi => oi.Orders)              // Cusromer側からみたらN件   
+                .HasForeignKey(oi => oi.CustomerId)     // 外部キー
+                .IsRequired(false)                      // 外部結合とするため必須にしない
+                .HasConstraintName("FK_Order_Customer");
+
+
         }
     }
 }
