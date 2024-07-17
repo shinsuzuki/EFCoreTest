@@ -38,6 +38,8 @@
             dataGridView1 = new DataGridView();
             btnSearch = new Button();
             btnDelete = new Button();
+            btnRemoveMatome = new Button();
+            btnInsertOrder = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -130,11 +132,33 @@
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
             // 
+            // btnRemoveMatome
+            // 
+            btnRemoveMatome.Location = new Point(438, 187);
+            btnRemoveMatome.Name = "btnRemoveMatome";
+            btnRemoveMatome.Size = new Size(133, 26);
+            btnRemoveMatome.TabIndex = 10;
+            btnRemoveMatome.Text = "Delete Matome";
+            btnRemoveMatome.UseVisualStyleBackColor = true;
+            btnRemoveMatome.Click += btnRemoveMatome_Click;
+            // 
+            // btnInsertOrder
+            // 
+            btnInsertOrder.Location = new Point(597, 156);
+            btnInsertOrder.Name = "btnInsertOrder";
+            btnInsertOrder.Size = new Size(156, 25);
+            btnInsertOrder.TabIndex = 11;
+            btnInsertOrder.Text = "Insert Order";
+            btnInsertOrder.UseVisualStyleBackColor = true;
+            btnInsertOrder.Click += btnInsertOrder_Click;
+            // 
             // FormUpdate
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 485);
+            Controls.Add(btnInsertOrder);
+            Controls.Add(btnRemoveMatome);
             Controls.Add(btnDelete);
             Controls.Add(btnSearch);
             Controls.Add(dataGridView1);
@@ -165,5 +189,7 @@
         private DataGridView dataGridView1;
         private Button btnSearch;
         private Button btnDelete;
+        private Button btnRemoveMatome;
+        private Button btnInsertOrder;
     }
 }

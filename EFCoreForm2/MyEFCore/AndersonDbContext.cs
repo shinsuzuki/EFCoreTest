@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFCoreForm2.MyEFCore
 {
@@ -39,12 +40,23 @@ namespace EFCoreForm2.MyEFCore
             modelBuilder.Entity<Order>()
                 .ToTable("Order");
 
+            modelBuilder.Entity<Order>()
+                .ToTable("Order");
+                //.HasOne(o => o.Customer)                // このプロパティからデータを一つだけ持ちます
+                //.WithMany(c => c.Orders)                // Cusromer側からみたらN件   
+                //.HasForeignKey(o => o.CustomerId)       // 外部キー
+                //.IsRequired(false)                      // 外部結合とするため必須にしない
+                //.HasConstraintName("FK_Order_Customer");
+
+            //modelBuilder.Entity<Order>()
+            //    .Property(o => o.OrderId)
+            //    .UseIdentityColumn()                                            // Identity対応
+            //    .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<OrderItem>().HasKey(oi => new 
             { 
                 oi.OrderId, oi.ProductId 
             });
-
 
             modelBuilder.Entity<OrderItem>()
                 .ToTable("OrderItem")
@@ -64,13 +76,6 @@ namespace EFCoreForm2.MyEFCore
 
             modelBuilder.Entity<Customer>()
                 .ToTable("Customer");
-
-            modelBuilder.Entity<Order>()
-                .HasOne(o => o.Customer)                // このプロパティからデータを一つだけ持ちます
-                .WithMany(c => c.Orders)                // Cusromer側からみたらN件   
-                .HasForeignKey(o => o.CustomerId)       // 外部キー
-                .IsRequired(false)                      // 外部結合とするため必須にしない
-                .HasConstraintName("FK_Order_Customer");
 
 
         }

@@ -13,9 +13,10 @@ namespace EFCoreForm2.MyEFCore
 
         public int CustomerId{  get; set; }
         public DateTime OrderDate { get; set; }
-        
-        
-        public List<OrderItem>? OrderItems { get; set; } = new List<OrderItem>();
-        public Customer Customer { get; set; } = new();
+
+
+        // ナビゲーションプロパティ
+        public ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
+        public Customer? Customer { get; set; }
     }
 }

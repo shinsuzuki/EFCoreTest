@@ -13,7 +13,7 @@ namespace EFCoreForm2.MyEFCore
         public string? TEL { get; set; }
         public string? MailAddress { get; set; }
 
-
-        public List<Order> Orders { get; set; } = new();
+        // ナビゲーションプロパティ
+        public ICollection<Order> Orders { get; } = new List<Order>();
     }
 }

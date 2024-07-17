@@ -182,7 +182,6 @@ namespace EFCoreForm2
                 var orders = ctx.Orders
                     .Include(o => o.OrderItems)
                         .ThenInclude(oi => oi.Product)
-                    //.Include(o => o.OrderItems)
                     .Include(o => o.Customer);
 
                 dataGridView1.DataSource = orders.ToList();

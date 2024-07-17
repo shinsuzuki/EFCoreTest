@@ -16,7 +16,8 @@ namespace EFCoreForm2.MyEFCore
         public int Price { get; set; }
 
 
-        public ProductEntity Product { get; set; } = new ();
-        public Order Order { get; set; } = new();
+        // ナビゲーションプロパティ
+        public ProductEntity? Product { get; set; }
+        public Order? Order { get; set; }
     }
 }

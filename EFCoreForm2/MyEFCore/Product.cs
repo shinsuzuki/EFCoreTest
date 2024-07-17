@@ -15,8 +15,9 @@ namespace EFCoreForm2.MyEFCore
         public int Price {  get; set; }
 
 
-        public List<OrderItem>? OrderItems { get; set; } = new List<OrderItem>();
-        
+        // ナビゲーションプロパティ
+        public ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
+
         public override string ToString()
         {
             return $"Id:{ProductId}, Name={ProductName}, Price={Price}";

@@ -1,4 +1,5 @@
 ﻿using EFCoreForm2.MyEFCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -115,6 +116,7 @@ namespace EFCoreForm2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // 削除
             using (var ctx = new AndersonDbContext())
             {
                 var target = ctx.Products
@@ -131,6 +133,42 @@ namespace EFCoreForm2
                 // 別のContextでRemoveしても削除されます。
                 // Removeの場合は、キーさえ指定すれば、別のContextで実施しても削除することができる
                 ctx.Products.Remove(target);
+                ctx.SaveChanges();
+            }
+        }
+
+        private void btnRemoveMatome_Click(object sender, EventArgs e)
+        {
+            // まとめて削除
+            using (var ctx = new AndersonDbContext())
+            {
+                var targets = ctx.Products.Where(x => x.ProductId >= 11 && x.ProductId <= 13);
+                ctx.Products.RemoveRange(targets);
+                var count = ctx.SaveChanges();
+                MessageBox.Show($"{count}件を削除しました");
+            }
+        }
+
+        private void btnInsertOrder_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new AndersonDbContext())
+            {
+                var order = new Order()
+                {
+                    OrderDate = DateTime.Now,
+                    CustomerId = 1001,
+                };
+                ctx.Orders.Add(order);  
+                ctx.SaveChanges();  // order.OrderId に採番される(Idendity)
+
+                var orderItem = new OrderItem()
+                {
+                    OrderId = order.OrderId,    // 採番されたIDを設定
+                    ProductId = 10,
+                    Quantity = 8,
+                    Price = 100,
+                };
+                ctx.OrderItems.Add(orderItem);
                 ctx.SaveChanges();
             }
         }
