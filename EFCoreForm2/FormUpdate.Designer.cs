@@ -40,6 +40,7 @@
             btnDelete = new Button();
             btnRemoveMatome = new Button();
             btnInsertOrder = new Button();
+            btnTran = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -146,17 +147,28 @@
             // 
             btnInsertOrder.Location = new Point(597, 156);
             btnInsertOrder.Name = "btnInsertOrder";
-            btnInsertOrder.Size = new Size(156, 25);
+            btnInsertOrder.Size = new Size(156, 26);
             btnInsertOrder.TabIndex = 11;
             btnInsertOrder.Text = "Insert Order";
             btnInsertOrder.UseVisualStyleBackColor = true;
             btnInsertOrder.Click += btnInsertOrder_Click;
+            // 
+            // btnTran
+            // 
+            btnTran.Location = new Point(597, 187);
+            btnTran.Name = "btnTran";
+            btnTran.Size = new Size(156, 26);
+            btnTran.TabIndex = 12;
+            btnTran.Text = "Transaction";
+            btnTran.UseVisualStyleBackColor = true;
+            btnTran.Click += btnTran_Click;
             // 
             // FormUpdate
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 485);
+            Controls.Add(btnTran);
             Controls.Add(btnInsertOrder);
             Controls.Add(btnRemoveMatome);
             Controls.Add(btnDelete);
@@ -191,5 +203,6 @@
         private Button btnDelete;
         private Button btnRemoveMatome;
         private Button btnInsertOrder;
+        private Button btnTran;
     }
 }
