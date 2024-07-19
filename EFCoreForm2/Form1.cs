@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using EFCoreForm2.MyEFCore;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Data.Common;
+using Microsoft.Data.SqlClient;
+using System.Runtime.CompilerServices;
 
 namespace EFCoreForm2
 {
@@ -228,5 +231,63 @@ namespace EFCoreForm2
                 f.ShowDialog();
             }
         }
+
+        private void btnCustomerSQL_Click(object sender, EventArgs e)
+        {
+            // 生SQL
+            using (var ctx = new AndersonDbContext())
+            {
+                // 文字列補完式(SqlParameterに置き換えられます。)
+                var customerId = "1001";
+                dataGridView1.DataSource = ctx.Customers.FromSql<Customer>($"select * from Customer where CustomerId = {customerId}").ToList();
+
+
+                // 文字列からFormattableStringを生成、パラメータを渡してSQLを実行
+                //var customerId = "1001";
+                //var q = FormattableStringFactory.Create("select * from Customer where CustomerId = {0}", customerId);
+                //dataGridView1.DataSource = ctx.Customers.FromSqlInterpolated(q).ToList();
+            }
+        }
+
+        private void btnOrderJoin_Click(object sender, EventArgs e)
+        {
+            // 生SQL-JOIN
+            using (var ctx = new AndersonDbContext())
+            {
+                // 大元はselectにすべて記述する必要ありか?
+                dataGridView1.DataSource =
+                    ctx.Orders.FromSql(
+                        @$"select 
+                            o.OrderId, 
+                            o.CustomerId, 
+                            o.OrderDate, 
+                            oi.Quantity, 
+                            oi.Price 
+                        from [Order] as o 
+                            left outer join OrderItem as oi 
+                            on o.OrderId = oi.OrderId").ToList();
+
+
+                //var joukenOrderId = 4;
+                //var sb = new StringBuilder();
+                //sb.Append("select");
+                //sb.Append("    o.OrderId, ");
+                //sb.Append("    o.CustomerId, ");
+                //sb.Append("    o.OrderDate, ");
+                //sb.Append("    oi.Quantity, ");
+                //sb.Append("    oi.Price ");
+                //sb.Append(" from ");
+                //sb.Append("    [Order] as o ");
+                //sb.Append("    left outer join OrderItem as oi ");
+                //sb.Append("    on o.OrderId = oi.OrderId");
+                //sb.Append(" where o.OrderId > {0}");
+
+                //dataGridView1.DataSource =
+                //    ctx.Orders.FromSql(FormattableStringFactory.Create(sb.ToString(), joukenOrderId)).ToList();
+
+            }
+
+        }
     }
 }
+

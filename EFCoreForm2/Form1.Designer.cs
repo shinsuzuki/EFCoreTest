@@ -47,6 +47,8 @@
             label2 = new Label();
             btnUpdateProduct = new Button();
             btnUpdateForm = new Button();
+            btnCustomerSQL = new Button();
+            btnOrderJoin = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -255,11 +257,35 @@
             btnUpdateForm.UseVisualStyleBackColor = true;
             btnUpdateForm.Click += btnUpdateForm_Click;
             // 
+            // btnCustomerSQL
+            // 
+            btnCustomerSQL.Location = new Point(571, 444);
+            btnCustomerSQL.Margin = new Padding(3, 2, 3, 2);
+            btnCustomerSQL.Name = "btnCustomerSQL";
+            btnCustomerSQL.Size = new Size(134, 33);
+            btnCustomerSQL.TabIndex = 19;
+            btnCustomerSQL.Text = "CustomerSQL";
+            btnCustomerSQL.UseVisualStyleBackColor = true;
+            btnCustomerSQL.Click += btnCustomerSQL_Click;
+            // 
+            // btnOrderJoin
+            // 
+            btnOrderJoin.Location = new Point(571, 481);
+            btnOrderJoin.Margin = new Padding(3, 2, 3, 2);
+            btnOrderJoin.Name = "btnOrderJoin";
+            btnOrderJoin.Size = new Size(134, 33);
+            btnOrderJoin.TabIndex = 20;
+            btnOrderJoin.Text = "OrderJoinSQL";
+            btnOrderJoin.UseVisualStyleBackColor = true;
+            btnOrderJoin.Click += btnOrderJoin_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 734);
+            Controls.Add(btnOrderJoin);
+            Controls.Add(btnCustomerSQL);
             Controls.Add(btnUpdateForm);
             Controls.Add(btnUpdateProduct);
             Controls.Add(label2);
@@ -310,5 +336,7 @@
         private Label label2;
         private Button btnUpdateProduct;
         private Button btnUpdateForm;
+        private Button btnCustomerSQL;
+        private Button btnOrderJoin;
     }
 }
