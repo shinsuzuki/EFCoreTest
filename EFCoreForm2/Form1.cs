@@ -251,10 +251,14 @@ namespace EFCoreForm2
 
         private void btnOrderJoin_Click(object sender, EventArgs e)
         {
-            // 生SQL-JOIN
+            // 生SQL-JOIN、ただしOrderに定義されていない項目は画面に表示されない
+            // 生SQLを使用する場合はSqlClientかDapperを利用する。取得したデータをクラスにいれる。
+            // EFCoreを利用するとDbContextを継承したクラスを作ってやる手間が発生する。
+
             using (var ctx = new AndersonDbContext())
             {
-                // 大元はselectにすべて記述する必要ありか?
+                //----------------------------------------
+                //大元はselectにすべて記述する必要ありか？、
                 dataGridView1.DataSource =
                     ctx.Orders.FromSql(
                         @$"select 
@@ -268,7 +272,12 @@ namespace EFCoreForm2
                             on o.OrderId = oi.OrderId").ToList();
 
 
-                //var joukenOrderId = 4;
+                //----------------------------------------
+                // プレースホルダの使い方
+                //var args = new List<object>();
+                //args.Add(1);
+                //args.Add(8);
+                //args.Add(12);
                 //var sb = new StringBuilder();
                 //sb.Append("select");
                 //sb.Append("    o.OrderId, ");
@@ -280,13 +289,39 @@ namespace EFCoreForm2
                 //sb.Append("    [Order] as o ");
                 //sb.Append("    left outer join OrderItem as oi ");
                 //sb.Append("    on o.OrderId = oi.OrderId");
-                //sb.Append(" where o.OrderId > {0}");
+                //sb.Append(" where");
+                //sb.Append("    o.OrderId in ({0},{1},{2})");
 
                 //dataGridView1.DataSource =
-                //    ctx.Orders.FromSql(FormattableStringFactory.Create(sb.ToString(), joukenOrderId)).ToList();
+                //    ctx.Orders.FromSql(FormattableStringFactory.Create(sb.ToString(), args.ToArray())).ToList();
+
+
+
+                //----------------------------------------
+                // パラメータクエリーの使い方
+                //var sb = new StringBuilder();
+                //sb.Append("select");
+                //sb.Append("    o.OrderId, ");
+                //sb.Append("    o.CustomerId, ");
+                //sb.Append("    o.OrderDate, ");
+                //sb.Append("    oi.Quantity, ");
+                //sb.Append("    oi.Price ");
+                //sb.Append(" from ");
+                //sb.Append("    [Order] as o ");
+                //sb.Append("    left outer join OrderItem as oi ");
+                //sb.Append("    on o.OrderId = oi.OrderId");
+                //sb.Append(" where");
+                //sb.Append("    o.OrderId in (@p1, @p2, @p3)");
+
+                //var args = new List<object>(); 
+                //args.Add(new SqlParameter("@p1", 1));
+                //args.Add(new SqlParameter("@p2", 2));
+                //args.Add(new SqlParameter("@p3", 3));
+
+                //dataGridView1.DataSource =
+                //    ctx.Orders.FromSql(FormattableStringFactory.Create(sb.ToString(), args.ToArray())).ToList();
 
             }
-
         }
     }
 }
