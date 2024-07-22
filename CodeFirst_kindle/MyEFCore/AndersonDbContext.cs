@@ -14,6 +14,7 @@ namespace CodeFirst_kindle.MyEFCore
         public DbSet<ProductItem> ProductItems { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<MyData> MyDatas { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

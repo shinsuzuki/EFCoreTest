@@ -11,5 +11,9 @@ namespace CodeFirst_kindle.MyEFCore
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string TEL { get; set; } 
+
+
+        // navigation property
+        public ICollection<Staff> Staffs { get; set; } = new List<Staff>();
     }
 }
