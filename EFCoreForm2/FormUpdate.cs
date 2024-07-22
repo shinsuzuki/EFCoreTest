@@ -159,7 +159,7 @@ namespace EFCoreForm2
                     CustomerId = 1001,
                 };
                 ctx.Orders.Add(order);
-                ctx.SaveChanges();  // order.OrderId に採番される(Idendity)
+                ctx.SaveChanges();              // SQL発行：order.OrderId に採番される(Idendity)
 
                 var orderItem = new OrderItem()
                 {
@@ -168,10 +168,36 @@ namespace EFCoreForm2
                     Quantity = 8,
                     Price = 100,
                 };
-                ctx.OrderItems.Add(orderItem);
+                ctx.OrderItems.Add(orderItem);  // SQL発行    
                 ctx.SaveChanges();
             }
         }
+
+        private void btnInsertOrder2_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new AndersonDbContext())
+            {
+                var order = new Order()
+                {
+                    OrderDate = DateTime.Now,
+                    CustomerId = 1001,
+                };
+
+                var orderItem = new OrderItem()
+                {
+                    // OrderId = ,ここでは不要、データの関連により設定される
+                    ProductId = 11,
+                    Quantity = 10,
+                    Price = 110,
+                };
+
+                order.OrderItems.Add(orderItem);    // OrderのOrderItemsに登録し、関連を作成、IDは自動的に設定される
+
+                ctx.Orders.Add(order);              
+                ctx.SaveChanges();                  // SQL発行
+            }
+        }
+
 
         private void btnTran_Click(object sender, EventArgs e)
         {
@@ -211,5 +237,6 @@ namespace EFCoreForm2
 
 
         }
+
     }
 }

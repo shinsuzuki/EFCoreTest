@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFGetStarted", "EFGetStarte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirst", "CodeFIrst\CodeFirst.csproj", "{D7415D35-FD9E-461A-9FFE-E62A94B79BBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm", "EFCoreForm\EFCoreForm.csproj", "{71271551-CE29-4D8D-897D-1958B854257C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm_kindle", "EFCoreForm\EFCoreForm_kindle.csproj", "{71271551-CE29-4D8D-897D-1958B854257C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm2", "EFCoreForm2\EFCoreForm2.csproj", "{C6B856E9-ADBF-4994-AE57-72309E26BA8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm2_kindle", "EFCoreForm2\EFCoreForm2_kindle.csproj", "{C6B856E9-ADBF-4994-AE57-72309E26BA8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLinq", "ConsoleLinq\ConsoleLinq.csproj", "{2C346519-EBFD-4A00-BAE6-8A17BB579942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLinq", "ConsoleLinq\ConsoleLinq.csproj", "{2C346519-EBFD-4A00-BAE6-8A17BB579942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst_kindle", "CodeFirst_kindle\CodeFirst_kindle.csproj", "{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2C346519-EBFD-4A00-BAE6-8A17BB579942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C346519-EBFD-4A00-BAE6-8A17BB579942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C346519-EBFD-4A00-BAE6-8A17BB579942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
