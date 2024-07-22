@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm_kindle", "EFCore
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreForm2_kindle", "EFCoreForm2\EFCoreForm2_kindle.csproj", "{C6B856E9-ADBF-4994-AE57-72309E26BA8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLinq", "ConsoleLinq\ConsoleLinq.csproj", "{2C346519-EBFD-4A00-BAE6-8A17BB579942}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLinq_Akahon", "ConsoleLinq\ConsoleLinq_Akahon.csproj", "{2C346519-EBFD-4A00-BAE6-8A17BB579942}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst_kindle", "CodeFirst_kindle\CodeFirst_kindle.csproj", "{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}"
 EndProject
