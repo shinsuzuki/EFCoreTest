@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLinq_Akahon", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst_kindle", "CodeFirst_kindle\CodeFirst_kindle.csproj", "{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEF_Code", "ConsoleEF_Code\ConsoleEF_Code.csproj", "{69CEEA54-C831-4DD7-9CB1-6642C8D2C364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B579DF-DC2C-4C29-92D8-C90CE9464EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69CEEA54-C831-4DD7-9CB1-6642C8D2C364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69CEEA54-C831-4DD7-9CB1-6642C8D2C364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69CEEA54-C831-4DD7-9CB1-6642C8D2C364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69CEEA54-C831-4DD7-9CB1-6642C8D2C364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
